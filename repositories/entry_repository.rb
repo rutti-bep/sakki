@@ -40,12 +40,4 @@ class EntryRepository
     entries.each(&block)
   end
 
-  def initialize(attrs = {})
-    attrs.each_pair do |key, val|
-      key = key.to_s.to_sym
-      if COLUMNS.include?(key)
-        instance_variable_set("@#{key}", val)
-      end
-    end
-  end  
 end
