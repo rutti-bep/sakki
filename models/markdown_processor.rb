@@ -1,10 +1,12 @@
 require_relative "markdown_processor/mention_filter"
+require_relative "markdown_processor/youtube_filter"
 
 class MarkdownProcessor
     FILTERS = [
             HTML::Pipeline::MarkdownFilter,
             HTML::Pipeline::AutolinkFilter,
-            MentionFilter
+            MentionFilter,
+            YoutubeFrameFilter
     ]
     def self.call(text,options = {})
         new(options).call(text)
