@@ -11,7 +11,7 @@ class MarkdownProcessor
     end
 
     def niconicoize(movieId)
-      %Q{<script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/sm#{movieId}?w=490&h=307"></script><noscript><a href="http://www.nicovideo.jp/watch/sm#{movieId}"></a></noscript>}
+      %Q{<script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/sm#{movieId}?w=600&h=350"></script><noscript><a href="http://www.nicovideo.jp/watch/sm#{movieId}"></a></noscript>}
     end
   end
 end

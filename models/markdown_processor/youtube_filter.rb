@@ -11,7 +11,7 @@ class MarkdownProcessor
     end
 
     def youtubize(movieId)
-      %Q{<iframe width="560" height="315" src="https://www.youtube.com/embed/#{movieId}" frameborder="0" allowfullscreen></iframe>}
+      %Q{<iframe width="600" height="350" src="https://www.youtube.com/embed/#{movieId}" frameborder="0" allowfullscreen></iframe>}
     end
   end
 end
