@@ -37,7 +37,7 @@ class App < Sinatra::Base
     def authorized?
       @auth ||= Rack::Auth::Basic::Request.new(request.env)
       @auth.provided? && @auth.basic? && @auth.credentials &&
-      @auth.credentials == [ENV['BLOG_USERNAME'],ENV['BLOG_PASSWORD']]
+        @auth.credentials == [ENV['BLOG_USERNAME'],ENV['BLOG_PASSWORD']]
     end
 
     def entry_repository

@@ -1,4 +1,5 @@
+h1 rutti-blog
 ul
-  - entry_repository.recent.each do |entry|
+  - entry_repository.recent(20).each do |entry|
       li
             a(href="/entries/#{entry.id}")= entry.title

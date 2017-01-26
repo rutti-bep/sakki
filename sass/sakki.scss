@@ -1,5 +1,22 @@
-html {
-  body{
-    
+html body{
+  background-color: white;
+  margin: 0;
+  h1{
+    background-color: #888888;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+  footer{
+    background-color: black;
+    position: fixed !important;
+    top: 0px;
+    right: 0px;
+    width: 170px;
+    height: 100%;
+    color: white;
+    a {
+      color: #cccccc;
+    }
+  }
+
 }

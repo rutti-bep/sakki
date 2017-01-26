@@ -1,3 +1,17 @@
-form {
-  
+html body{
+  form {
+    input[type=text] {
+      width:100%;
+      height: 40px;
+      font-size: 40px;
+    }
+    textarea{
+      width: 100%;
+      height: 200px;
+    }
+    input[type=submit] {
+      width: 100px;
+      height: 40px;
+    }
+  }
 }
