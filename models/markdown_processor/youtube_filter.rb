@@ -1,7 +1,6 @@
 class MarkdownProcessor
   class YoutubeFrameFilter < HTML::Pipeline::Filter
     def call
-      print doc
       doc.search('.//text()').each do |node|
         html = node.to_html.gsub(/https:\/\/www\.youtube\.com\/watch\?v=[a-zA-Z0-9_\-]+/) do |movieId|
           youtubize(movieId[32..-1])
