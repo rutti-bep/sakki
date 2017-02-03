@@ -67,9 +67,22 @@ class App < Sinatra::Base
     entry = Entry.new
     entry.title = params[:title]
     entry.body = params[:body]
+    entry.posted_at = params[:posted_at] || Time.now
     id = entry_repository.save(entry)
 
     redirect to("/entries/#{id}")
+  end
+
+  get "/entries/delete" do
+    protected!
+    slim :delete
+  end
+
+  post "/entries/delete" do
+    protected!
+    deleteId = params[:id].to_i
+    entry_repository.delete(deleteId)
+    redirect to("/entries/delete")
   end
 
   get "/entries/:id" do

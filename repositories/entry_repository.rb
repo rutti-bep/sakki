@@ -13,6 +13,14 @@ class EntryRepository
     entry.id = @db.last_id
     return entry.id
   end
+  
+  def delete(id)
+    query = "DELETE FROM `entries` WHERE `id` = ?"
+    p query
+    stmt = @db.prepare(query)
+    stmt.execute(id)
+    return true
+  end
 
   def fetch(id)
     query = "SELECT * FROM `entries` WHERE `id` = ?"
