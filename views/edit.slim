@@ -1,0 +1,9 @@
+link(rel="stylesheet" href="/css/newentry.css")
+form(method="POST" action="/entries/edit/#{@entry.id}")
+  input(type="text" name="title" value=@entry.title)
+  textarea(name="body")= @entry.body
+  input(type="datetime-local" name="posted_at" value=@entry.posted_at_iso8601||=Time.now.strftime("%Y-%m-%dT%H:%M"))
+  input(type="submit" value="編集")
+form(method="POST" action="/entries/delete/#{@entry.id}")
+  input(type="submit" value="削除")
+  

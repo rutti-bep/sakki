@@ -8,10 +8,27 @@ class EntryRepository
     columns = Entry::COLUMNS.reject { |key| key == :id }
     values = columns.map { |key| entry.instance_variable_get("@#{key}") }
     query = "INSERT INTO `entries` (#{columns.join(", ")}) VALUES (#{columns.map { '?' }.join(', ')})"
+    p query 
     stmt = @db.prepare(query)
     stmt.execute(*values)
     entry.id = @db.last_id
     return entry.id
+  end
+
+  def edit(id,entry)
+    columns = Entry::COLUMNS.reject { |key| key == :id }
+    values = columns.map { |key| entry.instance_variable_get("@#{key}") }
+    @str = "#{columns[0]}=\'#{values[0] || 'NULL'}\'"
+    for i in 1..columns.length-1 do
+      if values[i] != nil then
+        @str += ",#{columns[i]}=\'#{values[i] || 'NULL'}\'"
+      end
+    end
+    query = "UPDATE `entries` SET #{@str} WHERE `id` = #{id}"
+    p query
+    stmt = @db.prepare(query)
+    stmt.execute()
+    return true
   end
   
   def delete(id)

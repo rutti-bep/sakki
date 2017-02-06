@@ -1,3 +1,5 @@
+require 'time'
+
 class Entry
   COLUMNS = [:id, :title, :body, :posted_at, :published]
   COLUMNS.each do |column|
@@ -16,5 +18,9 @@ class Entry
   def body_html
       result = MarkdownProcessor.call(body)
       result[:output].to_s
+  end
+
+  def posted_at_iso8601
+      posted_at.strftime("%Y-%m-%dT%H:%M")
   end
 end
